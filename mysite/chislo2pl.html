@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+		<title>
+ 		Игра "Угадай число"
+ 		</title>
+ 	</head>
+	<body>
+		<script>
+			var rN = Math.floor(Math.random()*100)+1;
+			var uN =-1;
+			var count =0;
+				//0 - 1 игрок ,1 - второй игрок 
+			var user = true; // false - первый игрок
+					  // true - второй игрок
+			while ( uN != rN )	
+				{
+					user = !user;
+					uN = +prompt("Ходит "+ (user?2:1) +" игрок. Введите Число:");
+		
+					count++;
+					if(uN == -1) {break;}
+		
+					if(uN > rN) { alert("Больше загаданного"); }
+					if(uN < rN) { alert("Меньше загаданного"); }
+					if(uN == rN) { alert("Ура!"); }
+				}
+
+			alert((user?2:1) +" игрок одержал победу с "+count + "попыток");
+		</script>
+	</body>
+</html>

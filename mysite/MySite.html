@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Мой сайт</title>
+		<link rel="stylesheet" href="style.css">
+		<script>
+		function zagadki() 
+		{
+			var protv = 0;
+
+			var otvet1 = prompt("Всю неделю отдыхаем, Всех блинами угощаем. Холод зимний провожаем, А весну с теплом встречаем. ");
+    		if ( otvet1 == "Масленица" )
+   				 {
+    			protv = protv + 1;
+    			document.write("Ура! Ответ верный! Правильных ответов: " + protv+".<br>");
+   				 }
+   			 else
+    			 {
+    			document.write("Ответ неверный. Правильных ответов: " + protv+".<br>");
+   				 }
+
+   			 var otvet2 = prompt("Ножницы, шампунь, расческа, Всем я делаю прически, Стригу и взрослых, и детей. Отгадай меня скорей!  ");
+   			 if ( otvet2 == "парикмахер" )
+   				 {
+    			protv = protv + 1;
+    			document.write("Ура! Ответ верный! Правильных ответов: " + protv+".<br>");
+   				 }
+   			 else
+  				  {
+				document.write("Ответ неверный. Правильных ответов: " + protv+".<br>");
+				}
+
+			var otvet3 = prompt("День и ночь стучит оно, Будто бы заведено. Темп похож на бег коня, Отгадай-ка, детвора?  ");
+   			 if ( otvet3 == "сердце" )
+  				  {
+    			protv = protv + 1;
+    			document.write("Ура! Ответ верный! Правильных ответов: " + protv+".<br>");
+   				 }
+  			 else
+   				 {
+				document.write("Ответ неверный. Правильных ответов: " + protv+".<br>"
+					);
+				}
+
+				var otvet4 = prompt("В небе с тысячью подружек Крохотулька-льдинка кружит.   ");
+   			 if ( otvet4 == "снежинка" )
+			    {
+ 			   	protv = protv + 1;
+  			  	document.write("Ура! Ответ верный! Правильных ответов: " + protv + ". Игра окончена.");
+  				  }
+   			 else
+  				  {
+				document.write("Ответ неверный. Правильных ответов: " + protv + ". Игра окончена.");
+			   	}
+		}
+
+		</script>
+
+		<script>
+		function chislo()
+		{
+			var min=1;
+			var max=100;
+			var guessNumber=Math.floor( Math.random() * (max - min + 1)) + min;//Загадываем случайное число
+			document.write("Компьютер загадал число от "+min+" до "+max+". Угадайте его за 7 попыток<br>");
+			var tryCount=0;//Номер попытки
+			var userAnswer;
+			do
+				{
+				tryCount=tryCount+1;//Увеличиваем количество попыток на единицу
+				userAnswer=+prompt(tryCount + " попытка. Ваш вариант:");
+				document.write(tryCount+" попытка. ");
+				if (userAnswer>guessNumber)
+					document.write("Перелет<br>");
+				if (userAnswer<guessNumber)
+					document.write("Недолет<br>");
+				}
+			while(userAnswer!=guessNumber && tryCount<7);
+			if (userAnswer==guessNumber) document.write("Поздравляем!Вы угадали!");
+			else document.write("Вы проиграли! Попробуйте еще раз");
+		}
+		</script>
+
+		<script>
+
+		function chislotwo()
+		{
+			var rN = Math.floor(Math.random()*100)+1;
+			var uN =-1;
+			var count =0;
+				//0 - 1 игрок ,1 - второй игрок 
+			var user = true; // false - первый игрок
+					  // true - второй игрок
+			while ( uN != rN )	
+				{
+					user = !user;
+					uN = +prompt("Ходит "+ (user?2:1) +" игрок. Введите Число:");
+		
+					count++;
+					if(uN == -1) {break;}
+		
+					if(uN > rN) { alert("Больше загаданного"); }
+					if(uN < rN) { alert("Меньше загаданного"); }
+					if(uN == rN) { alert("Ура!"); }
+				}
+
+			alert((user?2:1) +" игрок одержал победу с "+count + "попыток");
+		}
+
+		</script>
+	</head>
+	<body>
+		<div id="header">
+			<a id="selected" href="#">Главная</a><span>/</span>
+			<a href="zagadki.html">Загадки</a><span>/</span>
+			<a href="chislo.html">Угадай число </a><span>/</span>
+			<a href="chislo2pl.html">Угадай число (на 2 игрока)</a>
+		</div>
+		<div id="content">
+			<h1>Личный сайт студента GeekBrains</h1>
+		<div id="center">
+			<img src="img/myphoto.png" width="389"  alt="фотография" title="фотография">
+				<div id="box_text">
+					<p>Добрый день. Меня зовут Алексей Гриценко.<br>
+					Я тоже начинающий программист и успел написать несколько задачек.</p>
+					<p>В этом мне помог курс <a href="https://geekbrains.ru/courses/2" target="_blank">Основы
+					программирования</a> образовательного IT-портала GeekBrains.</p>
+					<p>На этом сайте вы сможете сыграть в три игры, которые были включены в этот курс:</p>
+					
+
+					<input type="button"  value="Загадки" style="width:150px; height:30px; color:brown;"
+					onclick="zagadki()">
+
+					<input type="button" value="Угадай число" style="width:150px; height:30px; color:green;"
+					onclick="chislo()">
+
+					<input type="button" value="Угадай число (на 2 игрока)" style="width:250px; height:30px; color:green;"
+					onclick="chislotwo()">
+
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			Copyright © 2016 <a href="https://geekbrains.ru/" target="_blank">GeekBrains</a>
+		</div>
+	</body>
+</html>
